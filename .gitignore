@@ -161,4 +161,4 @@ cython_debug/
 
 # Outputs of the code
 pictures
-models
+\models
