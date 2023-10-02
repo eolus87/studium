@@ -31,7 +31,7 @@ class CustomCallback(keras.callbacks.Callback):
             ax[0].set_xlabel('X values')
             ax[0].set_ylabel('Y Values')
             ax[0].set_title(f"Epoch {epoch}")
-            ax[0].set_ylim(-2, 2)
+            ax[0].set_ylim(-2, 3)
 
             weights_array = []
             for i in range(len(self.model.get_weights())):
