@@ -1,11 +1,21 @@
 __author__ = "eolus87"
 
 # Standard libraries
+import os
 # Third party libraries
 import numpy as np
 import tensorflow as tf
 # Custom libraries
-from auxiliary_functions import trigonometric, compile_and_fit_nonlinear
+from auxiliary_functions import compile_and_fit_nonlinear
+
+
+def trigonometric(x):
+    y = np.sin(x)
+    return y
+
+
+os.makedirs("pictures", exist_ok=True)
+os.makedirs("models", exist_ok=True)
 
 picture_name = "initial_trigonometric"
 
