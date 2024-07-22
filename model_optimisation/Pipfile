@@ -4,12 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-numpy = "==1.26.4"
 pandas = "*"
 scikit-learn = "*"
 scikit-learn-intelex = "*"
 ipykernel = "*"
 daal4py = "*"
+tensorflow = "==2.12.0"
+ai-benchmark = "*"
+numpy = "*"
 
 [dev-packages]
 
