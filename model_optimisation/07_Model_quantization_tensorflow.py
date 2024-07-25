@@ -95,6 +95,6 @@ for i in range(NUM_ITERATIONS):
     toc = time.time() - tic
     logger.info(f"Inference iteration {i} took {toc} seconds")
 
-average_time = total_time / NUM_ITERATIONS
+average_time = np.mean(time_per_iteration)
 logger.info(f"Average inference time over {NUM_ITERATIONS} iterations: {average_time} seconds")
 logger.info(f"Standard deviation: {np.std(time_per_iteration)}")
