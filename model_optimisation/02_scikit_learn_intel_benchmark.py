@@ -2,6 +2,7 @@ __author__ = "eolus87"
 
 #%% Libraries
 # Standard libraries
+import os
 import time
 from datetime import datetime
 
@@ -16,11 +17,15 @@ from sklearn.svm import SVR
 
 # Custom libraries
 
+RESULTS_FOLDER = 'results'
+
 
 # %% Setting up the experiment
 number_of_experiments = 10
 training_times = []
 inference_times = []
+if not os.path.exists(RESULTS_FOLDER):
+    os.makedirs(RESULTS_FOLDER, exist_ok=True)
 
 #%% Data generation
 data = pd.read_csv('winequality-white.csv', sep=';')
@@ -69,6 +74,8 @@ now = datetime.now()
 formatted_now = now.strftime("%y%m%d_%H%M%S")
 
 # Step 3: Save the DataFrame to a CSV file
-report_df.to_csv(f'{formatted_now}_experiment_times_report_intel_skl.csv', index=False)
+filename = f'{formatted_now}_experiment_times_report_intel_skl.csv'
+filepath = os.path.join(RESULTS_FOLDER, filename)
+report_df.to_csv(filepath, index=False)
 
 print("Report saved as experiment_times_report.csv")
