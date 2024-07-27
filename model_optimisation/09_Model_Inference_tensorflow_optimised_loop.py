@@ -1,9 +1,16 @@
 __author__ = "eolus87"
 
-# %% Loading libraries
+#%% Loading libraries
 # Standard libraries
 import os
-os.environ['MKL_DISABLE_FAST_MM'] = '1'
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "1"
+os.environ["KMP_BLOCKTIME"] = "1"
+os.environ["KMP_SETTINGS"]= "1"
+os.environ["KMP_AFFINITY"]= "granularity=fine,verbose,compact,1,0"
+os.environ["OMP_NUM_THREADS"]= "8"
+os.environ["TF_NUM_INTRAOP_THREADS"]= "8"
+os.environ["TF_NUM_INTEROP_THREADS"]= "8"
 import logging
 import time
 from datetime import datetime
@@ -17,8 +24,8 @@ from sklearn.metrics import confusion_matrix
 
 print(tf.__version__)
 
-#%% Script configuration and set up
-# Suppress TensorFlow logging
+#%% Script configuration
+# Script configuration and set up
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suppress INFO and WARNING logs
 tf.get_logger().setLevel(logging.ERROR)  # Suppress progress bars and other verbose output
 NUM_ITERATIONS = 5
@@ -33,7 +40,7 @@ now = datetime.now()
 formatted_now = now.strftime("%y%m%d_%H%M%S")
 
 #%% Logging configuration
-log_filename = os.path.join(RESULTS_FOLDER, f'{formatted_now}_tensorflow_inference_plain_loop.log')
+log_filename = os.path.join(RESULTS_FOLDER, f'{formatted_now}_tensorflow_inference_optimised_loop.log')
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',

@@ -9,7 +9,8 @@ scikit-learn = "*"
 scikit-learn-intelex = "*"
 ipykernel = "*"
 daal4py = "*"
-tensorflow = "==2.12.0"
+tensorflow = "==2.15.0"
+intel-extension-for-tensorflow = {extras = ["cpu"], version = "*"}
 ai-benchmark = "*"
 numpy = "*"
 
