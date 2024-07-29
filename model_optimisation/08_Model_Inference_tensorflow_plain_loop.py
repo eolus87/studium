@@ -3,7 +3,7 @@ __author__ = "eolus87"
 # %% Loading libraries
 # Standard libraries
 import os
-os.environ['MKL_DISABLE_FAST_MM'] = '1'
+# os.environ['MKL_DISABLE_FAST_MM'] = '1'
 import logging
 import time
 from datetime import datetime
@@ -54,6 +54,8 @@ logger.info("Model loaded")
 #%% Getting the dataset
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train = x_train/255.0
+x_test = x_test/255.0
 
 #%% Inferencing a single image
 start_time = time.time()
