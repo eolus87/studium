@@ -4,10 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "*"
+pandas = "*"
+scikit-learn = "*"
+scikit-learn-intelex = "*"
+ipykernel = "*"
+daal4py = "*"
+tensorflow = "==2.15.0"
+ai-benchmark = "*"
 numpy = "*"
 onnx = "*"
-onnxruntime-openvino = "*"
+onnxruntime = "*"
+tf2onnx = "*"
 
 [dev-packages]
 

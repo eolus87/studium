@@ -73,7 +73,7 @@ for i in range(NUM_ITERATIONS):
     predictions = np.zeros([inferences_number, 10])
     tic = time.time()
     for j in range(inferences_number):
-        preprocess_image(x_test[j])
+        # preprocess_image(x_test[j])
         prediction = session.run(None, {input_name: preprocess_image(x_test[j])})
         predictions[j, :] = prediction[0]
     toc = time.time() - tic
